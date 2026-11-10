@@ -9,19 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam:wght@400;500;600;700;800;900&family=Noto+Serif+Malayalam:wght@500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
- .winners {
-    margin-top: 1cqw;
-    flex: 0 0 auto;
-    align-items: end;
+.winners .card {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    align-items: center !important;
+    padding-top: 1cqw !important;
+    gap: 1cqw !important;
 }
-
-.card {
-    justify-content: flex-start;
-}
-
-.trophy {
-    height: 19cqw;
-    max-height: 160px;
+.winners .card .trophy {
+    margin-top: -20px !important;
+    transform: translateY(-65px);
 }
 :root{--gold:#ffd36f;--cream:#fff3d5;--red:#b71922;--dark:#100d0d}
 *{box-sizing:border-box}
