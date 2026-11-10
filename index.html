@@ -13,8 +13,16 @@
 /* SIR'S DESIGN CHANGES */
 
 /* 1. White poster background */
+/* PREMIUM WARM-WHITE POSTER */
 .poster {
-    background: #ffffff !important;
+    background: #fffdf7 !important;
+    color: #30251d !important;
+    box-shadow: 0 15px 45px rgba(50, 35, 20, 0.12);
+}
+
+/* Remove the dark background overlay */
+.poster::before {
+    background: none !important;
 }
 
 /* 2. Make logo bigger */
