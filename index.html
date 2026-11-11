@@ -70,11 +70,13 @@ button,input,select{font:inherit}
 .item{font-family:"Noto Serif Malayalam",serif;font-size:5.1cqw;line-height:1.25;font-weight:900;color:#4b321b;margin:0;overflow-wrap:anywhere}
 .winners-label{font-family:"Playfair Display",Georgia,serif;font-weight:900;letter-spacing:.55cqw;font-size:6.15cqw;color:#a87527;text-shadow:0 1px 0 #fff;margin-top:0;line-height:1.2}
 .winners{display:grid;grid-template-columns:1fr 1.12fr 1fr;gap:1.35cqw;width:100%;align-items:stretch;margin-top:0;flex:none}
-/* Staggered podium cards: 1st place highest, 2nd lower, 3rd lowest. */
-.winners{align-items:stretch}
+/* True descending staircase: each card starts lower than the one before it.
+   Align items to the top so CSS Grid does not stretch them back to one baseline. */
+.winners{align-items:start}
+.winners>.card{align-self:start}
 .winners>.card.first{margin-top:0}
-.winners>.card.second{margin-top:4cqw}
-.winners>.card.third{margin-top:8cqw}
+.winners>.card.second{margin-top:clamp(8px,2.8cqw,24px)}
+.winners>.card.third{margin-top:clamp(16px,5.6cqw,48px)}
 
 .card{border:1px solid rgba(167,126,62,.55);border-radius:1.7cqw 1.7cqw 1cqw 1cqw;background:linear-gradient(180deg,rgba(255,255,255,.78),rgba(231,218,192,.72));padding:1.2cqw .9cqw 1.5cqw;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:0;min-height:0;overflow:hidden;box-shadow:0 5px 14px rgba(76,52,24,.09)}
 .card.first{height:auto;background:linear-gradient(180deg,#fff9e9,#f1dfb7);border:1.5px solid #c99a43;box-shadow:0 7px 20px rgba(151,103,28,.17)}
@@ -91,7 +93,7 @@ button,input,select{font:inherit}
 .footer{font-size:1.55cqw;color:#806a4c;margin-top:0;letter-spacing:.05cqw;line-height:1.4}
 @media(max-width:980px){.app{grid-template-columns:320px minmax(0,1fr);gap:18px;padding:16px}.tools{padding:17px}.poster{width:100%}}
 @media(max-width:760px){.app{display:flex;flex-direction:column;padding:12px;gap:16px}.tools{position:static;width:100%;max-height:none;order:0}.stage{width:100%;order:1}.poster{width:min(100%,620px)}}
-@media(max-width:420px){.app{padding:8px}.tools{padding:15px}.actions{grid-template-columns:1fr}.actions button{grid-column:1}.poster{width:100%}}
+@media(max-width:420px){.app{padding:8px}.tools{padding:15px}.actions{grid-template-columns:1fr}.actions button{grid-column:1}.poster{width:100%}.winners>.card.second{margin-top:2.4cqw}.winners>.card.third{margin-top:4.8cqw}}
 @media print{body{background:white}.app{display:block;padding:0}.tools{display:none}.stage{display:block}.poster{width:100%;box-shadow:none}}
 </style>
 </head>
